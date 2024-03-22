@@ -1,0 +1,85 @@
+{
+    "weather_conditions": [
+       {
+          "condition": "Clear sky",
+          "image_link": "assets/daily_mood/clear-sky.png"
+       },
+       {
+          "condition": "Few clouds",
+          "image_link": "assets/daily_mood/few-clouds.png"
+       },
+       {
+          "condition": "Scattered clouds",
+          "image_link": "assets/daily_mood/scattered-clouds.png"
+       },
+       {
+          "condition": "Broken clouds",
+          "image_link": "assets/daily_mood/broken-clouds.png"
+       },
+       {
+          "condition": "Shower rain",
+          "image_link": "assets/daily_mood/shower-rain.png"
+       },
+       {
+          "condition": "Rain",
+          "image_link": "assets/daily_mood/rain.png"
+       },
+       {
+          "condition": "Thunderstorm",
+          "image_link": "assets/daily_mood/thunderstorm.png"
+       },
+       {
+          "condition": "Snow",
+          "image_link": "assets/daily_mood/snow.png"
+       },
+       {
+          "condition": "Mist",
+          "image_link": "assets/daily_mood/mist.png"
+       },
+       {
+          "condition": "Haze",
+          "image_link": "assets/daily_mood/haze.png"
+       },
+       {
+          "condition": "Smoke",
+          "image_link": "assets/daily_mood/smoke.png"
+       },
+       {
+          "condition": "Fog",
+          "image_link": "assets/daily_mood/fog.png"
+       },
+       {
+          "condition": "Sand",
+          "image_link": "assets/daily_mood/sand.png"
+       },
+       {
+          "condition": "Dust",
+          "image_link": "assets/daily_mood/dust.png"
+       },
+       {
+          "condition": "Ash",
+          "image_link": "assets/daily_mood/ash.png"
+       },
+       {
+          "condition": "Squalls",
+          "image_link": "assets/daily_mood/squalls.png"
+       },
+       {
+          "condition": "Tornado",
+          "image_link": "assets/daily_mood/tornado.png"
+       },
+       {
+          "condition": "Light rain",
+          "image_link": "assets/daily_mood/light-rain.png"
+       },
+       {
+          "condition": "Overcast clouds",
+          "image_link": "assets/daily_mood/overcast-clouds.png"
+       },
+       {
+          "condition": "Moderate rain",
+          "image_link": "assets/daily_mood/moderate-rain.png"
+       }
+    ]
+ }
+ 
