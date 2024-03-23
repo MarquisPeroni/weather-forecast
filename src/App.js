@@ -1,67 +1,45 @@
-import './App.css'
-import "bootstrap/dist/css/bootstrap.min.css"
-import icons from "./data/icons.json"
-import { useState, useEffect } from "react"
-import Search from "./components/Search"
-import CurrentWeather from "./components/CurrentWeather"
-import NextDaysWeather from "./components/NextDaysWeather"
+import "./App.css"
+import Search from "./components/search/Search"
+import Forecast from "./components/forecast/Forecast"
+import CurrentWeather from "./components/current-weather/CurrentWeather"
+import { WEA_API_URL, WEA_API_KEY } from "./apiKey"
+import { useState } from "react"
 
 function App() {
-  const [lon, setLon] = useState(-0.5);
-  const [lat, setLat] = useState(50);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
 
-  useEffect(() => {
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0,
-    };
+  const handleOnSearchChange = (searchData) => {
+    const [lat, lon] = searchData.value.split(" ");
 
-    function success(position) {
-      const coordinates = position.coords;
-      setLat(coordinates.latitude);
-      setLon(coordinates.longitude);
-    }
+    const currentWeatherFetch = fetch(`${WEA_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEA_API_KEY}&units=metric`);
+    const forecastFetch = fetch(`${WEA_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEA_API_KEY}&units=metric`);
 
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
+    Promise.all([currentWeatherFetch, forecastFetch])
+      .then(async (response) => {
+        const weatherResponse = await response[0].json();
+        const forecastResponse = await response[1].json();
 
-    navigator.geolocation.getCurrentPosition(success, error, options);
-  }, []);
-
-  const getIcon = function (weather) {
-    for (let i = 0; i < icons.weather.length; i++) {
-      if (
-        weather.toLowerCase() === 
-        icons.weather_conditions[i].condition.toLowerCase()
-      ) {
-        return icons.weather_conditions[i].image_link;
-      }
-    }
+        setCurrentWeather({ city: searchData.label, ...weatherResponse });
+        setForecast({ city: searchData.label, ...forecastResponse });
+      })
+      .catch((err) => console.log(err));
   };
 
-  console.log("Parent", lon, lat);
-
   return (
-    <>
-      <Search setLongitude={lon} setLatitude={lat} />
-      <CurrentWeather
-      longitude={lon}
-      latitude={lat}
-      getIcon={getIcon}
-      windowWidth={windowWidth}
-      />
-      <NextDaysWeather
-      longitude={lon}
-      latitude={lat}
-      getIcon={getIcon}
-      windowWidth={windowWidth}
-      setWindowWidth={setWindowWidth}
-      />
-    </>
+    <div className="container-background">
+      <main className="container">
+        <h1>Thunderclouds today?</h1>
+        <Search onSearchChange={handleOnSearchChange} />
+        {currentWeather && <CurrentWeather data={currentWeather} />}
+        {forecast && <Forecast data={forecast} />}
+      </main>
+    </div>
   );
 }
 
 export default App;
+
+//Ho riconfigurato completamente la mia applicazione, ieri ho avuto una giornata impraticabile e non sono riuscito a fare un bel lavoro,
+// ho deciso oggi, di rifarlo completamente da zero. 
+//spero non influisca troppo sul tuo feedback. ciao e buona giornata :)

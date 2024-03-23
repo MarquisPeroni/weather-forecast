@@ -1,33 +1,30 @@
-.App {
-  background: #14e217 !important;
-  background: radial-gradient(at left top, #a8a26c, #6260e0) !important;
-  min-height: 100vh !important;
+.container {
+  max-width: 1080px;
+  margin: 20px auto;
+  background-color: rgb(55, 124, 64, 0.7);
+  border-radius: 10%;
+  padding: 5rem;
 }
 
-.glass {
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.07) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(6.9px) !important;
-  -webkit-backdrop-filter: blur(6.9px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+h1,
+h2 {
+  text-align: center;
+  color: #333;
 }
 
-.glass-main {
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.11) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4.8px) !important;
+.container-background {
+  background-image: url('https://i.pinimg.com/originals/74/7b/59/747b594e8267d32027079e412387ff1a.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.text-shadow {
-  text-shadow: rgba(0, 0, 0, 0.63) 0.1em 0.1em 0.8em !important;
+.inner-container {
+  background-color: rgba(255, 255, 255, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
 }
-
-.text-shadow-1 {
-  text-shadow: rgba(0, 0, 0, 0.418) 0.1em 0.1em 0.8em !important;
-}
-
-
